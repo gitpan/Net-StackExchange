@@ -1,50 +1,27 @@
-package Net::StackExchange::Answers;
+package Net::StackExchange::Comments;
 BEGIN {
-  $Net::StackExchange::Answers::VERSION = '0.102601';
+  $Net::StackExchange::Comments::VERSION = '0.102601';
 }
 
-# ABSTRACT: Provides accessors for an answer
+# ABSTRACT: Provides accessors for a comment
 
 use Moose;
 
-has 'answer_id' => (
+has 'comment_id' => (
     is       => 'ro',
     isa      => 'Int',
     required => 1,
-);
-
-has 'accepted' => (
-    is       => 'ro',
-    isa      => 'Boolean',
-    required => 1,
-    coerce   => 1,
-);
-
-has 'answer_comments_url' => (
-    is       => 'ro',
-    isa      => 'Str',
-    required => 1,
-);
-
-has 'question_id' => (
-    is       => 'ro',
-    isa      => 'Int',
-    required => 1,
-);
-
-has 'locked_date' => (
-    is  => 'ro',
-    isa => 'Int',
-);
-
-has 'owner' => (
-    is  => 'ro',
-    isa => 'Net::StackExchange::Owner',
 );
 
 has 'creation_date' => (
     is       => 'ro',
     isa      => 'Int',
+    required => 1,
+);
+
+has 'owner' => (
+    is       => 'rw'
+    isa      => 'Net::StackExchange::Owner',
     required => 1,
 );
 
@@ -123,7 +100,7 @@ no Moose;
 
 =head1 NAME
 
-Net::StackExchange::Answers - Provides accessors for an answer
+Net::StackExchange::Comments - Provides accessors for a comment
 
 =head1 VERSION
 

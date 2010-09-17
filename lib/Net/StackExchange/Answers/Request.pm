@@ -1,6 +1,6 @@
 package Net::StackExchange::Answers::Request;
 BEGIN {
-  $Net::StackExchange::Answers::Request::VERSION = '0.102600';
+  $Net::StackExchange::Answers::Request::VERSION = '0.102601';
 }
 
 # ABSTRACT: Request methods for answers
@@ -97,7 +97,7 @@ Net::StackExchange::Answers::Request - Request methods for answers
 
 =head1 VERSION
 
-version 0.102600
+version 0.102601
 
 =head1 SYNOPSIS
 

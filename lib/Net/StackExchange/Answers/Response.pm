@@ -1,6 +1,6 @@
 package Net::StackExchange::Answers::Response;
 BEGIN {
-  $Net::StackExchange::Answers::Response::VERSION = '0.102600';
+  $Net::StackExchange::Answers::Response::VERSION = '0.102601';
 }
 
 # ABSTRACT: Accessors for a set of answers
@@ -112,7 +112,7 @@ Net::StackExchange::Answers::Response - Accessors for a set of answers
 
 =head1 VERSION
 
-version 0.102600
+version 0.102601
 
 =head1 SYNOPSIS
 

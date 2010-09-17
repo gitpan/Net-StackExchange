@@ -1,6 +1,6 @@
 package Net::StackExchange::Owner;
 BEGIN {
-  $Net::StackExchange::Owner::VERSION = '0.102600';
+  $Net::StackExchange::Owner::VERSION = '0.102601';
 }
 
 # ABSTRACT: Attributes to represent a user
@@ -55,7 +55,7 @@ Net::StackExchange::Owner - Attributes to represent a user
 
 =head1 VERSION
 
-version 0.102600
+version 0.102601
 
 =head1 SYNOPSIS
 

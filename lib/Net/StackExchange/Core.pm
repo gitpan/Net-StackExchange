@@ -1,6 +1,6 @@
 package Net::StackExchange::Core;
 BEGIN {
-  $Net::StackExchange::Core::VERSION = '0.102600';
+  $Net::StackExchange::Core::VERSION = '0.102601';
 }
 
 # ABSTRACT: Subroutines for internal use
@@ -74,7 +74,7 @@ Net::StackExchange::Core - Subroutines for internal use
 
 =head1 VERSION
 
-version 0.102600
+version 0.102601
 
 =head1 AUTHOR
 

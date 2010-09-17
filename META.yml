@@ -26,4 +26,6 @@ requires:
   Moose::Util::TypeConstraints: 0
   Scalar::Util: 0
   URI::Escape: 0
-version: 0.102600
+resources:
+  repository: http://github.com/alanhaggai/Net-StackExchange
+version: 0.102601

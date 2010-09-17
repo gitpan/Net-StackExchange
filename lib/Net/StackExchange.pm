@@ -1,12 +1,14 @@
 package Net::StackExchange;
 BEGIN {
-  $Net::StackExchange::VERSION = '0.102600';
+  $Net::StackExchange::VERSION = '0.102601';
 }
 
 # ABSTRACT: Access Stack Exchange API from Perl
 
 use Moose;
 use Moose::Util::TypeConstraints;
+
+use Carp qw{ confess };
 
 use Net::StackExchange::Core;
 use Net::StackExchange::Route;
@@ -68,7 +70,7 @@ around 'route' => sub {
 
     # this is a workaround as enum() requires at least two values
     if ( $route ne 'answers' ) {
-        die q{Currently, 'answers' is the only valid value for 'route()'};
+        confess q{'answers' is the only valid value'};
     }
 
     $route = "\u$route";
@@ -93,7 +95,7 @@ Net::StackExchange - Access Stack Exchange API from Perl
 
 =head1 VERSION
 
-version 0.102600
+version 0.102601
 
 =head1 SYNOPSIS
 

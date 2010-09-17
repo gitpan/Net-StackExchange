@@ -21,7 +21,7 @@ my %module_build_args = (
     'Alan Haggai Alavi <alanhaggai@alanhaggai.org>'
   ],
   'dist_name' => 'Net-StackExchange',
-  'dist_version' => '0.102600',
+  'dist_version' => '0.102601',
   'license' => 'perl',
   'module_name' => 'Net::StackExchange',
   'recommends' => {},

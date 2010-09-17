@@ -1,6 +1,6 @@
 package Net::StackExchange::Role::Response;
 BEGIN {
-  $Net::StackExchange::Role::Response::VERSION = '0.102600';
+  $Net::StackExchange::Role::Response::VERSION = '0.102601';
 }
 
 # ABSTRACT: Common response methods
@@ -27,7 +27,7 @@ Net::StackExchange::Role::Response - Common response methods
 
 =head1 VERSION
 
-version 0.102600
+version 0.102601
 
 =head1 ATTRIBUTES
 
