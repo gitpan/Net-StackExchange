@@ -1,6 +1,6 @@
 package Net::StackExchange::Role::Request;
 BEGIN {
-  $Net::StackExchange::Role::Request::VERSION = '0.102601';
+  $Net::StackExchange::Role::Request::VERSION = '0.102650';
 }
 
 # ABSTRACT: Common request methods
@@ -41,7 +41,7 @@ Net::StackExchange::Role::Request - Common request methods
 
 =head1 VERSION
 
-version 0.102601
+version 0.102650
 
 =head1 ATTRIBUTES
 

@@ -10,7 +10,6 @@ lib/Net/StackExchange.pm
 lib/Net/StackExchange/Answers.pm
 lib/Net/StackExchange/Answers/Request.pm
 lib/Net/StackExchange/Answers/Response.pm
-lib/Net/StackExchange/Comments.pm
 lib/Net/StackExchange/Core.pm
 lib/Net/StackExchange/Owner.pm
 lib/Net/StackExchange/Role/Request.pm

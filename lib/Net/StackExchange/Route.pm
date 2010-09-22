@@ -1,6 +1,6 @@
 package Net::StackExchange::Route;
 BEGIN {
-  $Net::StackExchange::Route::VERSION = '0.102601';
+  $Net::StackExchange::Route::VERSION = '0.102650';
 }
 
 # ABSTRACT: Builds appropriate request object
@@ -42,7 +42,7 @@ Net::StackExchange::Route - Builds appropriate request object
 
 =head1 VERSION
 
-version 0.102601
+version 0.102650
 
 =head1 SYNOPSIS
 

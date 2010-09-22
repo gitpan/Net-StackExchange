@@ -1,6 +1,6 @@
 package Net::StackExchange;
 BEGIN {
-  $Net::StackExchange::VERSION = '0.102601';
+  $Net::StackExchange::VERSION = '0.102650';
 }
 
 # ABSTRACT: Access Stack Exchange API from Perl
@@ -95,7 +95,7 @@ Net::StackExchange - Access Stack Exchange API from Perl
 
 =head1 VERSION
 
-version 0.102601
+version 0.102650
 
 =head1 SYNOPSIS
 
