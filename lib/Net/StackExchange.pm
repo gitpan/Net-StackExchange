@@ -1,6 +1,6 @@
 package Net::StackExchange;
 BEGIN {
-  $Net::StackExchange::VERSION = '0.102650';
+  $Net::StackExchange::VERSION = '0.102740';
 }
 
 # ABSTRACT: Access Stack Exchange API from Perl
@@ -22,32 +22,32 @@ has 'network' => (
     is  => 'ro',
     isa => enum( [
         qw{
-          stackoverflow.com
-          serverfault.com
-          meta.stackoverflow.com
-          superuser.com
-          stackapps.com
-          webapps.stackexchange.com
-          gaming.stackexchange.com
-          webmasters.stackexchange.com
-          cooking.stackexchange.com
-          gamedev.stackexchange.com
-          gadgets.stackexchange.com
-          photo.stackexchange.com
-          stats.stackexchange.com
-          math.stackexchange.com
-          diy.stackexchange.com
-          gis.stackexchange.com
-          tex.stackexchange.com
-          ubuntu.stackexchange.com
-          money.stackexchange.com
-          english.stackexchange.com
-          ui.stackexchange.com
-          unix.stackexchange.com
-          wordpress.stackexchange.com
-          cstheory.stackexchange.com
-          apple.stackexchange.com
-          rpg.stackexchange.com
+            stackoverflow.com
+            serverfault.com
+            meta.stackoverflow.com
+            superuser.com
+            stackapps.com
+            webapps.stackexchange.com
+            gaming.stackexchange.com
+            webmasters.stackexchange.com
+            cooking.stackexchange.com
+            gamedev.stackexchange.com
+            gadgets.stackexchange.com
+            photo.stackexchange.com
+            stats.stackexchange.com
+            math.stackexchange.com
+            diy.stackexchange.com
+            gis.stackexchange.com
+            tex.stackexchange.com
+            ubuntu.stackexchange.com
+            money.stackexchange.com
+            english.stackexchange.com
+            ui.stackexchange.com
+            unix.stackexchange.com
+            wordpress.stackexchange.com
+            cstheory.stackexchange.com
+            apple.stackexchange.com
+            rpg.stackexchange.com
           }
     ] ),
     required => 1,
@@ -74,7 +74,7 @@ around 'route' => sub {
     }
 
     $route = "\u$route";
-    return "Net::StackExchange::Route"->new( {
+    return Net::StackExchange::Route->new( {
         '_NSE'   => $self,
         '_route' => $route,
     } );
@@ -95,7 +95,7 @@ Net::StackExchange - Access Stack Exchange API from Perl
 
 =head1 VERSION
 
-version 0.102650
+version 0.102740
 
 =head1 SYNOPSIS
 

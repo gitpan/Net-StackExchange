@@ -1,13 +1,19 @@
 package Net::StackExchange::Role::Response;
 BEGIN {
-  $Net::StackExchange::Role::Response::VERSION = '0.102650';
+  $Net::StackExchange::Role::Response::VERSION = '0.102740';
 }
 
 # ABSTRACT: Common response methods
 
 use Moose::Role;
 
-has [ qw{ total page pagesize } ] => (
+has [
+    qw{
+        total
+        page
+        pagesize
+      }
+    ] => (
     is       => 'ro',
     isa      => 'Int',
     required => 1,
@@ -27,7 +33,7 @@ Net::StackExchange::Role::Response - Common response methods
 
 =head1 VERSION
 
-version 0.102650
+version 0.102740
 
 =head1 ATTRIBUTES
 

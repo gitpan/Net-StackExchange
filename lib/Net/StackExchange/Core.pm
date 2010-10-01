@@ -1,6 +1,6 @@
 package Net::StackExchange::Core;
 BEGIN {
-  $Net::StackExchange::Core::VERSION = '0.102650';
+  $Net::StackExchange::Core::VERSION = '0.102740';
 }
 
 # ABSTRACT: Subroutines for internal use
@@ -20,7 +20,9 @@ sub _get_query_string {
 
     while ( my ( $key, $value ) = each %{$parametres} ) {
         $key   = uri_escape($key  );
-        $value = uri_escape($value) // next;
+        $value = uri_escape($value);
+
+        next unless defined $value;
 
         push @query_string, "$key=$value";
     }
@@ -74,7 +76,7 @@ Net::StackExchange::Core - Subroutines for internal use
 
 =head1 VERSION
 
-version 0.102650
+version 0.102740
 
 =head1 AUTHOR
 

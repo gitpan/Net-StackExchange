@@ -1,6 +1,6 @@
 package Net::StackExchange::Types;
 BEGIN {
-  $Net::StackExchange::Types::VERSION = '0.102650';
+  $Net::StackExchange::Types::VERSION = '0.102740';
 }
 
 # ABSTRACT: Custom types
@@ -58,7 +58,7 @@ Net::StackExchange::Types - Custom types
 
 =head1 VERSION
 
-version 0.102650
+version 0.102740
 
 =head1 AUTHOR
 

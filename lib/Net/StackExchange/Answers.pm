@@ -1,13 +1,22 @@
 package Net::StackExchange::Answers;
 BEGIN {
-  $Net::StackExchange::Answers::VERSION = '0.102650';
+  $Net::StackExchange::Answers::VERSION = '0.102740';
 }
 
 # ABSTRACT: Provides accessors for an answer
 
 use Moose;
 
-has 'answer_id' => (
+has [
+    qw{
+        answer_id
+        question_id
+        creation_date
+        up_vote_count
+        down_vote_count
+        view_count score
+      }
+    ] => (
     is       => 'ro',
     isa      => 'Int',
     required => 1,
@@ -20,19 +29,24 @@ has 'accepted' => (
     coerce   => 1,
 );
 
-has 'answer_comments_url' => (
+has [
+    qw{
+        answer_comments_url
+        title
+      }
+    ] => (
     is       => 'ro',
     isa      => 'Str',
     required => 1,
 );
 
-has 'question_id' => (
-    is       => 'ro',
-    isa      => 'Int',
-    required => 1,
-);
-
-has 'locked_date' => (
+has [
+    qw{
+        locked_date
+        last_edit_date
+        last_activity_date
+      }
+    ] => (
     is  => 'ro',
     isa => 'Int',
 );
@@ -42,57 +56,11 @@ has 'owner' => (
     isa => 'Net::StackExchange::Owner',
 );
 
-has 'creation_date' => (
-    is       => 'ro',
-    isa      => 'Int',
-    required => 1,
-);
-
-has 'last_edit_date' => (
-    is  => 'ro',
-    isa => 'Int',
-);
-
-has 'last_activity_date' => (
-    is  => 'ro',
-    isa => 'Int',
-);
-
-has 'up_vote_count' => (
-    is       => 'ro',
-    isa      => 'Int',
-    required => 1,
-);
-
-has 'down_vote_count' => (
-    is       => 'ro',
-    isa      => 'Int',
-    required => 1,
-);
-
-has 'view_count' => (
-    is       => 'ro',
-    isa      => 'Int',
-    required => 1,
-);
-
-has 'score' => (
-    is       => 'ro',
-    isa      => 'Int',
-    required => 1,
-);
-
 has 'community_owned' => (
     is       => 'ro',
     isa      => 'Boolean',
     required => 1,
     coerce   => 1,
-);
-
-has 'title' => (
-    is       => 'ro',
-    isa      => 'Str',
-    required => 1,
 );
 
 has 'body' => (
@@ -127,7 +95,7 @@ Net::StackExchange::Answers - Provides accessors for an answer
 
 =head1 VERSION
 
-version 0.102650
+version 0.102740
 
 =head1 SYNOPSIS
 

@@ -1,6 +1,6 @@
 package Net::StackExchange::Role::Request;
 BEGIN {
-  $Net::StackExchange::Role::Request::VERSION = '0.102650';
+  $Net::StackExchange::Role::Request::VERSION = '0.102740';
 }
 
 # ABSTRACT: Common request methods
@@ -21,7 +21,12 @@ has 'type' => (
     },
 );
 
-has [ qw{ key jsonp } ] => (
+has [
+    qw{
+        key
+        jsonp
+      }
+    ] => (
     is  => 'rw',
     isa => 'Str',
 );
@@ -41,7 +46,7 @@ Net::StackExchange::Role::Request - Common request methods
 
 =head1 VERSION
 
-version 0.102650
+version 0.102740
 
 =head1 ATTRIBUTES
 

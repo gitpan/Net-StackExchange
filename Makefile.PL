@@ -15,7 +15,6 @@ my %WriteMakefileArgs = (
     'ExtUtils::MakeMaker' => '6.31',
     'Module::Build' => '0.3601',
     'Test::Differences' => '0',
-    'Test::MockObject' => '0',
     'Test::More' => '0.94'
   },
   'CONFIGURE_REQUIRES' => {
@@ -36,7 +35,7 @@ my %WriteMakefileArgs = (
     'Scalar::Util' => '0',
     'URI::Escape' => '0'
   },
-  'VERSION' => '0.102650',
+  'VERSION' => '0.102740',
   'test' => {
     'TESTS' => 't/*.t'
   }

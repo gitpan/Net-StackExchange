@@ -10,7 +10,6 @@ my %module_build_args = (
     'ExtUtils::MakeMaker' => '6.31',
     'Module::Build' => '0.3601',
     'Test::Differences' => '0',
-    'Test::MockObject' => '0',
     'Test::More' => '0.94'
   },
   'configure_requires' => {
@@ -22,7 +21,7 @@ my %module_build_args = (
     'Alan Haggai Alavi <alanhaggai@alanhaggai.org>'
   ],
   'dist_name' => 'Net-StackExchange',
-  'dist_version' => '0.102650',
+  'dist_version' => '0.102740',
   'license' => 'perl',
   'module_name' => 'Net::StackExchange',
   'recommends' => {},
