@@ -1,41 +1,82 @@
-package Net::StackExchange;
+package Net::StackExchange::V2::Questions;
 
 use 5.006;
 use strict;
 use warnings FATAL => 'all';
-use Net::StackExchange::V2;
+use Sub::Name qw(subname);
+use Net::StackExchange::V2::Common qw(query no_params one_param);
 
-our $VERSION = "0.01";
+our $VERSION = '0.01';
+
 sub new {
-	my $class = shift;#unused here
-	my $params = shift;
-	return Net::StackExchange::V2->new($params);
-}
+	my ($class, $params) = @_;
+    my $self = $params;
+    bless $self, $class;
 
-1; # End of Net::StackExchange
+	*questions_all = subname(
+	   "Net::StackExchange::V2::Questions::questions_all",
+	   no_params("questions"),
+	);
+	*questions = subname(
+	   "Net::StackExchange::V2::Questions::questions",
+	   one_param("questions"),
+	);
+	*questions_answers = subname(
+	   "Net::StackExchange::V2::Questions::questions_answers",
+	   one_param("questions", "answers"),
+	);
+	*questions_comments = subname(
+	   "Net::StackExchange::V2::Questions::questions_comments",
+	   one_param("questions", "comments"),
+	);
+	*questions_linked = subname(
+	   "Net::StackExchange::V2::Questions::questions_linked",
+	   one_param("questions", "linked"),
+	);
+	*questions_related = subname(
+	   "Net::StackExchange::V2::Questions::questions_related",
+	   one_param("questions", "related"),
+	);
+	*questions_timeline = subname(
+	   "Net::StackExchange::V2::Questions::questions_timeline",
+	   one_param("questions", "timeline"),
+	);
+	*questions_featured = subname(
+	   "Net::StackExchange::V2::Questions::questions_featured",
+	   no_params("questions/featured"),
+	);
+	*questions_unanswered = subname(
+	   "Net::StackExchange::V2::Questions::questions_unanswered",
+	   no_params("questions/unanswered"),
+	);
+	*questions_no_answers = subname(
+	   "Net::StackExchange::V2::Questions::questions_no_answers",
+	   no_params("questions/no-answers"),
+	);
+    return $self;
+}
+1; #END of Net::StackExchange::V2::Questions
 __END__
 
 
 =head1 NAME
 
-Net::StackExchange - The great new Net::StackExchange!
+Net::StackExchange::V2::Questions - The great new Net::StackExchange::V2::Questions!
 
 =head1 VERSION
 
 Version 0.01
 
 =cut
-
-
 =head1 SYNOPSIS
 
 Quick summary of what the module does.
 
 Perhaps a little code snippet.
 
-    use Net::StackExchange;
+    use Net::StackExchange::V2::Questions;
 
-    my $foo = Net::StackExchange->new();
+    my $foo = Net::StackExchange::V2::Questions->new();
     ...
 
 =head1 EXPORT
@@ -49,15 +90,9 @@ if you don't export anything, such as for a purely object-oriented module.
 
 =cut
 
-sub function1 {
-}
-
 =head2 function2
 
 =cut
-
-sub function2 {
-}
 
 =head1 AUTHOR
 
@@ -76,7 +111,7 @@ automatically be notified of progress on your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Net::StackExchange
+    perldoc Net::StackExchange::V2::Questions
 
 
 You can also look for information at:

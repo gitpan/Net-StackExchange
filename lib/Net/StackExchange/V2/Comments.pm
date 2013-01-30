@@ -1,41 +1,58 @@
-package Net::StackExchange;
+package Net::StackExchange::V2::Comments;
 
 use 5.006;
 use strict;
 use warnings FATAL => 'all';
-use Net::StackExchange::V2;
+use Sub::Name qw(subname);
+use Net::StackExchange::V2::Common qw(query no_params one_param);
 
-our $VERSION = "0.01";
+our $VERSION = '0.01';
+
 sub new {
-	my $class = shift;#unused here
-	my $params = shift;
-	return Net::StackExchange::V2->new($params);
-}
+	my ($class, $params) = @_;
+    my $self = $params;
+    bless $self, $class;
 
-1; # End of Net::StackExchange
+	*comments_all = subname(
+	   "Net::StackExchange::V2::Comments::comments_all",
+	   no_params("comments"),
+	);
+	*comments = subname(
+	   "Net::StackExchange::V2::Comments::comments",
+	   one_param("comments"),
+	);
+	*comments_delete = subname(
+	   "Net::StackExchange::V2::Comments::comments_delete",
+	   one_param("comments", "delete", {post => 1}),
+	);
+	*comments_edit = subname(
+	   "Net::StackExchange::V2::Comments::comments_edit",
+	   one_param("comments", "edit", {post => 1}),
+	);
+    return $self;
+}
+1; #END of Net::StackExchange::V2::Comments
 __END__
 
 
 =head1 NAME
 
-Net::StackExchange - The great new Net::StackExchange!
+Net::StackExchange::V2::Comments - The great new Net::StackExchange::V2::Comments!
 
 =head1 VERSION
 
 Version 0.01
 
 =cut
-
-
 =head1 SYNOPSIS
 
 Quick summary of what the module does.
 
 Perhaps a little code snippet.
 
-    use Net::StackExchange;
+    use Net::StackExchange::V2::Comments;
 
-    my $foo = Net::StackExchange->new();
+    my $foo = Net::StackExchange::V2::Comments->new();
     ...
 
 =head1 EXPORT
@@ -49,16 +66,9 @@ if you don't export anything, such as for a purely object-oriented module.
 
 =cut
 
-sub function1 {
-}
-
 =head2 function2
 
 =cut
-
-sub function2 {
-}
-
 =head1 AUTHOR
 
 Gideon Israel Dsouza, C<< <gideon at cpan.org> >>
@@ -76,7 +86,7 @@ automatically be notified of progress on your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Net::StackExchange
+    perldoc Net::StackExchange::V2::Comments
 
 
 You can also look for information at:

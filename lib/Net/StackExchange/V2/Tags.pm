@@ -1,24 +1,70 @@
-package Net::StackExchange;
+package Net::StackExchange::V2::Tags;
 
 use 5.006;
 use strict;
 use warnings FATAL => 'all';
-use Net::StackExchange::V2;
+use Sub::Name qw(subname);
+use Net::StackExchange::V2::Common qw(query no_params one_param two_params);
 
-our $VERSION = "0.01";
+our $VERSION = '0.01';
+
 sub new {
-	my $class = shift;#unused here
-	my $params = shift;
-	return Net::StackExchange::V2->new($params);
+	my ($class, $params) = @_;
+    my $self = $params;
+    bless $self, $class;
+
+	*tags_all = subname(
+	   "Net::StackExchange::V2::Tags::tags_all",
+	   no_params("tags"),
+	);
+	*tags_info = subname(
+	   "Net::StackExchange::V2::Tags::tags_info",
+	   one_param("tags", "info"),
+	);
+	*tags_moderator_only = subname(
+	   "Net::StackExchange::V2::Tags::tags_moderator_only",
+	   no_params("tags/moderator-only"),
+	);
+	*tags_required = subname(
+	   "Net::StackExchange::V2::Tags::tags_required",
+	   no_params("tags/required"),
+	);
+	*tags_synonyms_all = subname(
+	   "Net::StackExchange::V2::Tags::tags_synonyms_all",
+	   no_params("tags/synonyms"),
+	);
+	*tags_faq = subname(
+	   "Net::StackExchange::V2::Tags::tags_faq",
+	   one_param("tags", "faq"),
+	);
+	*tags_related = subname(
+	   "Net::StackExchange::V2::Tags::tags_related",
+	   one_param("tags", "related"),
+	);
+	*tags_synonyms = subname(
+	   "Net::StackExchange::V2::Tags::tags_synonyms",
+	   one_param("tags", "synonyms"),
+	);
+	*tags_top_answerers = subname(
+	   "Net::StackExchange::V2::Tags::tags_top_answerers",
+	   two_params("tags", "top-answerers"),
+	);
+	*tags_top_askers = subname(
+	   "Net::StackExchange::V2::Tags::tags_top_askers",
+	   two_params("tags", "top-askers"),
+	);
+	*tags_wikis = subname(
+	   "Net::StackExchange::V2::Tags::tags_wikis",
+	   one_param("tags", "wikis"),
+	);	
+    return $self;
 }
-
-1; # End of Net::StackExchange
 __END__
-
+1; # End of Net::StackExchange::V2::Tags
 
 =head1 NAME
 
-Net::StackExchange - The great new Net::StackExchange!
+Net::StackExchange::V2::Tags - The great new Net::StackExchange::V2::Tags!
 
 =head1 VERSION
 
@@ -26,16 +72,15 @@ Version 0.01
 
 =cut
 
-
 =head1 SYNOPSIS
 
 Quick summary of what the module does.
 
 Perhaps a little code snippet.
 
-    use Net::StackExchange;
+    use Net::StackExchange::V2::Tags;
 
-    my $foo = Net::StackExchange->new();
+    my $foo = Net::StackExchange::V2::Tags->new();
     ...
 
 =head1 EXPORT
@@ -76,7 +121,7 @@ automatically be notified of progress on your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Net::StackExchange
+    perldoc Net::StackExchange::V2::Tags
 
 
 You can also look for information at:

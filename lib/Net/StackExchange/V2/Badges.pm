@@ -1,24 +1,55 @@
-package Net::StackExchange;
+package Net::StackExchange::V2::Badges;
 
 use 5.006;
 use strict;
 use warnings FATAL => 'all';
-use Net::StackExchange::V2;
+use Sub::Name qw(subname);
+use Net::StackExchange::V2::Common qw(query no_params one_param);
 
-our $VERSION = "0.01";
+our $VERSION = '0.01';
+
 sub new {
-	my $class = shift;#unused here
-	my $params = shift;
-	return Net::StackExchange::V2->new($params);
+	my ($class, $params) = @_;
+    my $self = $params;
+    bless $self, $class;
+
+	*badges_all = subname(
+	   "Net::StackExchange::V2::Badges::badges_all",
+	   no_params("badges"),
+	);
+	*badges = subname(
+	   "Net::StackExchange::V2::Badges::badges",
+	   one_param("badges"),
+	);
+	*badges_name = subname(
+	   "Net::StackExchange::V2::Badges::badges_name",
+	   no_params("badges/name"),
+	);
+	*badges_recipients_all = subname(
+	   "Net::StackExchange::V2::Badges::badges_recipients_all",
+	   no_params('badges/recipients'),
+	);
+	*badges_recipients = subname(
+	   "Net::StackExchange::V2::Badges::badges_recipients",
+	   one_param("badges","recipients")
+	);
+	*badges_tags = subname(
+	   "Net::StackExchange::V2::Badges::badges_tags",
+	   no_params("badges/tags"),
+	);
+
+    return $self;
 }
 
-1; # End of Net::StackExchange
+1; #END of Net::StackExchange::V2::Badges
 __END__
+
+
 
 
 =head1 NAME
 
-Net::StackExchange - The great new Net::StackExchange!
+Net::StackExchange::V2::Badges - The great new Net::StackExchange::V2::Badges!
 
 =head1 VERSION
 
@@ -26,16 +57,15 @@ Version 0.01
 
 =cut
 
-
 =head1 SYNOPSIS
 
 Quick summary of what the module does.
 
 Perhaps a little code snippet.
 
-    use Net::StackExchange;
+    use Net::StackExchange::V2::Badges;
 
-    my $foo = Net::StackExchange->new();
+    my $foo = Net::StackExchange::V2::Badges->new();
     ...
 
 =head1 EXPORT
@@ -49,15 +79,9 @@ if you don't export anything, such as for a purely object-oriented module.
 
 =cut
 
-sub function1 {
-}
-
 =head2 function2
 
 =cut
-
-sub function2 {
-}
 
 =head1 AUTHOR
 
@@ -76,7 +100,7 @@ automatically be notified of progress on your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Net::StackExchange
+    perldoc Net::StackExchange::V2::Badges
 
 
 You can also look for information at:

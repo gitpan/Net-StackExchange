@@ -1,24 +1,37 @@
-package Net::StackExchange;
+package Net::StackExchange::V2::AccessTokens;
 
 use 5.006;
 use strict;
 use warnings FATAL => 'all';
-use Net::StackExchange::V2;
+use Sub::Name qw(subname);
+use Net::StackExchange::V2::Common qw(query no_params one_param);
 
-our $VERSION = "0.01";
+our $VERSION = '0.01';
+
 sub new {
-	my $class = shift;#unused here
-	my $params = shift;
-	return Net::StackExchange::V2->new($params);
-}
+	my ($class, $params) = @_;
+    my $self = $params;
+    bless $self, $class;
 
-1; # End of Net::StackExchange
+	*access_tokens_invalidate = subname(
+	   "Net::StackExchange::V2::AccessTokens::access_tokens_invalidate",
+	   one_param("access-tokens","invalidate"),
+	);
+	
+	*access_tokens = subname(
+	   "Net::StackExchange::V2::AccessTokens::access_tokens",
+	   one_param("access-tokens"),
+	);
+	
+    return $self;
+}
+1; #END of Net::StackExchange::V2::AccessTokens
 __END__
 
 
 =head1 NAME
 
-Net::StackExchange - The great new Net::StackExchange!
+Net::StackExchange::V2::AccessTokens - The great new Net::StackExchange::V2::AccessTokens!
 
 =head1 VERSION
 
@@ -33,9 +46,9 @@ Quick summary of what the module does.
 
 Perhaps a little code snippet.
 
-    use Net::StackExchange;
+    use Net::StackExchange::V2::AccessTokens;
 
-    my $foo = Net::StackExchange->new();
+    my $foo = Net::StackExchange::V2::AccessTokens->new();
     ...
 
 =head1 EXPORT
@@ -49,15 +62,10 @@ if you don't export anything, such as for a purely object-oriented module.
 
 =cut
 
-sub function1 {
-}
-
 =head2 function2
 
 =cut
 
-sub function2 {
-}
 
 =head1 AUTHOR
 
@@ -76,7 +84,7 @@ automatically be notified of progress on your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Net::StackExchange
+    perldoc Net::StackExchange::V2::AccessTokens
 
 
 You can also look for information at:
@@ -147,3 +155,5 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 =cut
+
+1; # End of Net::StackExchange::V2::AccessTokens

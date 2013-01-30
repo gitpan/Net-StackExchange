@@ -1,24 +1,120 @@
-package Net::StackExchange;
+package Net::StackExchange::V2;
 
 use 5.006;
 use strict;
 use warnings FATAL => 'all';
-use Net::StackExchange::V2;
+use Net::StackExchange::V2::Answers;
+use Net::StackExchange::V2::AccessTokens;
+use Net::StackExchange::V2::Badges;
+use Net::StackExchange::V2::Comments;
+use Net::StackExchange::V2::Errors;
+use Net::StackExchange::V2::Events;
+use Net::StackExchange::V2::Info;
+use Net::StackExchange::V2::Posts;
+use Net::StackExchange::V2::Privileges;
+use Net::StackExchange::V2::Questions;
+use Net::StackExchange::V2::Revisions;
+use Net::StackExchange::V2::Search;
+use Net::StackExchange::V2::Sites;
+use Net::StackExchange::V2::SuggestedEdits;
+use Net::StackExchange::V2::Tags;
+use Net::StackExchange::V2::Users;
+use Net::StackExchange::V2::Filters;
+use Net::StackExchange::V2::Inbox;
+use Net::StackExchange::V2::Notifications;
 
-our $VERSION = "0.01";
+our $VERSION = '0.01';
+
 sub new {
-	my $class = shift;#unused here
-	my $params = shift;
-	return Net::StackExchange::V2->new($params);
+	my ($class, $params) = @_;
+    my $self = $params;
+    bless $self, $class;
+    return $self;
 }
-
-1; # End of Net::StackExchange
+sub answers {
+	my $self = shift;
+	return Net::StackExchange::V2::Answers->new($self);
+}
+sub access_tokens {
+	my $self = shift;
+	return Net::StackExchange::V2::AccessTokens->new($self);
+}
+sub badges {
+	my $self = shift;
+	return Net::StackExchange::V2::Badges->new($self);
+}
+sub comments {
+	my $self = shift;
+	return Net::StackExchange::V2::Comments->new($self);
+}
+sub info {
+	my $self = shift;
+	return Net::StackExchange::V2::Info->new($self);
+}
+sub posts {
+	my $self = shift;
+	return Net::StackExchange::V2::Posts->new($self);
+}
+sub privileges {
+	my $self = shift;
+	return Net::StackExchange::V2::Privileges->new($self);	
+}
+sub questions {
+	my $self = shift;
+	return Net::StackExchange::V2::Questions->new($self);	
+}
+sub revisions {
+	my $self = shift;
+	return Net::StackExchange::V2::Revisions->new($self);	
+}
+sub search {
+	my $self = shift;
+	return Net::StackExchange::V2::Search->new($self);
+}
+sub sites {
+	my $self = shift;
+	$self->{site} = '';#THIS IS A special case. 
+	#The sites module has only one sites_all method that SHOULD NOT has a site query str
+	return Net::StackExchange::V2::Sites->new($self);	
+}
+sub errors {
+	my $self = shift;
+	return Net::StackExchange::V2::Errors->new($self);
+}
+sub suggested_edits {
+	my $self = shift;
+	return Net::StackExchange::V2::SuggestedEdits->new($self);
+}
+sub tags {
+	my $self = shift;
+	return Net::StackExchange::V2::Tags->new($self);
+}
+sub users {
+	my $self = shift;
+	return Net::StackExchange::V2::Users->new($self);
+}
+sub events {
+	my $self = shift;
+	return Net::StackExchange::V2::Events->new($self);
+}
+sub filters {
+	my $self = shift;
+	return Net::StackExchange::V2::Filters->new($self);
+}
+sub inbox {
+	my $self = shift;
+	return Net::StackExchange::V2::Inbox->new($self);
+}
+sub notifications {
+	my $self = shift;
+	return Net::StackExchange::V2::Notifications->new($self);
+}
+1; #End of StackExchange::V2
 __END__
-
 
 =head1 NAME
 
-Net::StackExchange - The great new Net::StackExchange!
+Net::StackExchange::V2 - The great new Net::StackExchange::V2!
 
 =head1 VERSION
 
@@ -33,9 +129,9 @@ Quick summary of what the module does.
 
 Perhaps a little code snippet.
 
-    use Net::StackExchange;
+    use Net::StackExchange::V2;
 
-    my $foo = Net::StackExchange->new();
+    my $foo = Net::StackExchange::V2->new();
     ...
 
 =head1 EXPORT
@@ -49,15 +145,9 @@ if you don't export anything, such as for a purely object-oriented module.
 
 =cut
 
-sub function1 {
-}
-
 =head2 function2
 
 =cut
-
-sub function2 {
-}
 
 =head1 AUTHOR
 
@@ -76,7 +166,7 @@ automatically be notified of progress on your bug as I make changes.
 
 You can find documentation for this module with the perldoc command.
 
-    perldoc Net::StackExchange
+    perldoc Net::StackExchange::V2
 
 
 You can also look for information at:
